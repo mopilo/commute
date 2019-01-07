@@ -1,4 +1,4 @@
-module.exports = function validateRegisterInput(data) {
+module.exports = function validateLoginInput(data) {
     let errors = {};
 
     functions
