@@ -4,17 +4,22 @@ import {NavBar} from '../src/components/layouts//NavBar';
 import {Landing} from './components/layouts/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login'
+import {Provider} from 'react-redux';
+import store from "./store";
+
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div>
-          <NavBar/>
-          <Route exact path="/" component={Landing}/>
-          <Route exact path="/register" component={Register}/>
-          <Route exact path="/login" component={Login}/>
-        </div>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <div>
+            <NavBar/>
+            <Route exact path="/" component={Landing}/>
+            <Route exact path="/register" component={Register}/>
+            <Route exact path="/login" component={Login}/>
+          </div>
+        </Router>
+      </Provider>
     );
   }
 }
