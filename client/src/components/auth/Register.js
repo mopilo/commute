@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import { registerUser } from "../../actions/authAction";
+import Spinner from '../../utils/Spinner'
 
 
 
@@ -50,6 +51,7 @@ class Register extends Component {
 
 render() {
   const { errors } = this.state;
+  const {loading} = this.props.auth;
   return (
       <div className="container">
         <div className="row">
@@ -126,7 +128,9 @@ render() {
               </div>
               
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
+               { 
+                 loading ? <Spinner/> :
+               <button
                   style={{
                     width: "150px",
                     borderRadius: "3px",
@@ -137,7 +141,7 @@ render() {
                   className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                 >
                   Sign up
-                </button>
+                </button>}
               </div>
             </form>
           </div>
