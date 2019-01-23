@@ -1,6 +1,7 @@
 import {
     SET_CURRENT_USER,
-    USER_LOADING
+    USER_LOADING,
+    USER_NOT_LOADING
   } from "../actions/types";
   const isEmpty = require("is-empty");
   const initialState = {
@@ -20,6 +21,11 @@ import {
         return {
           ...state,
           loading: true
+        };
+        case USER_NOT_LOADING:
+        return {
+          ...state,
+          loading: false
         };
       default:
         return state;
